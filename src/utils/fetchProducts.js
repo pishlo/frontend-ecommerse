@@ -4,7 +4,7 @@ export const fetchProducts = async () => {
     try {
         const response = await fetch(uri)
         if (!response.ok) {
-            throw new Error("Network resonse was not ok")
+            throw new Error("Network response was not ok")
         }
         const data = await response.json();
         return data
