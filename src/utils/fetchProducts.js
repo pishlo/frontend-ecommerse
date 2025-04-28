@@ -1,8 +1,8 @@
-const uri = "http://localhost:3000/api/products/getProducts";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const fetchProducts = async () => {
     try {
-        const response = await fetch(uri)
+        const response = await fetch(`${API_BASE_URL}/api/products/getProducts`);
         if (!response.ok) {
             throw new Error("Network response was not ok")
         }

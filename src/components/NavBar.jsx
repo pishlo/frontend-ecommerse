@@ -19,25 +19,26 @@ const NavBar = () => {
         <Link className="navbar-brand" to="/">
           E-commerce
         </Link>
-        <div className="col-md-3 text-end d-flex align-items-center justify-content-end">
+        <div className="d-flex flex-wrap gap-2 justify-content-end align-items-center">
           {token ? (
             <>
-              {/* Add Product Button */}
-              <Link className="btn btn-warning me-3" to="/create-product">
+              <Link className="btn btn-warning" to="/create-product">
                 Add Product
               </Link>
 
-              {/* Welcome Message */}
-              <span className="text-white me-3">Welcome, {firstName}!</span>
+              {firstName && (
+                <span className="text-white">
+                  Welcome, {firstName}!
+                </span>
+              )}
 
-              {/* Logout Button */}
               <button className="btn btn-outline-light" onClick={handleLogout}>
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link className="btn btn-outline-dark me-2" to="/login">
+              <Link className="btn btn-outline-dark" to="/login">
                 Login
               </Link>
               <Link className="btn btn-success" to="/signup">
