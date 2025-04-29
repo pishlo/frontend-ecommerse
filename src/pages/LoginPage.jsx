@@ -5,6 +5,8 @@ import { useState } from "react";
 import { checkEmail } from "../utils/checkFormErrors.js";
 import AlertComp from "../components/AlertComp.jsx";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const LogInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +32,7 @@ const LogInPage = () => {
 
       console.log("sending request for login")
 
-      const response = await fetch("http://localhost:3000/api/users/login", {
+      const response = await fetch(`${API_BASE_URL}/api/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

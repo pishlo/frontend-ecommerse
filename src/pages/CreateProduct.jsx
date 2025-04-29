@@ -4,7 +4,10 @@ import LabelComp from "../components/LabelComp";
 import InputForm from "../components/InputForm";
 import AlertComp from "../components/AlertComp";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const CreatePage = () => {
+
   const [formData, setFormData] = useState({
     brand: '',
     model: '',
@@ -37,7 +40,7 @@ const CreatePage = () => {
         throw new Error("Not authenticated. Please login first.");
       }
 
-      const response = await fetch("http://localhost:3000/api/products/addProduct", {
+      const response = await fetch(`${API_BASE_URL}/api/products/addProduct`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

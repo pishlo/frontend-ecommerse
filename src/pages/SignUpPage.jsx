@@ -4,6 +4,8 @@ import InputForm from "../components/InputForm";
 import { useNavigate } from "react-router-dom";
 import AlertComp from "../components/AlertComp";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -51,7 +53,7 @@ const SignUpPage = () => {
         imageUrl: "placeholder" // hardcoded for now
       };
 
-      const response = await fetch("http://localhost:3000/api/users/signup", {
+      const response = await fetch(`${API_BASE_URL}/api/users/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
